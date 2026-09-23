@@ -1,0 +1,104 @@
+/* ============================================
+   PLANS PAGE — page-specific styles
+   (tokens, .glass, nav, footer, buttons, .section,
+   .tabs/.tab-panel and .cta-band come from style.css)
+   ============================================ */
+
+.nav-links a.active{ color:var(--ink); }
+.nav-links a.active::after{ width:100%; }
+
+/* ---------- HERO ---------- */
+.plans-hero{
+  position:relative; min-height:92vh; display:flex; align-items:center;
+  padding:150px 24px 90px; overflow:hidden;
+}
+.plans-hero::before{
+  content:''; position:absolute; inset:0; z-index:0;
+  background:radial-gradient(1100px 580px at 88% 15%, rgba(255,122,156,.08), transparent 60%),
+             radial-gradient(900px 500px at 8% 85%, rgba(123,110,246,.07), transparent 60%);
+}
+.plans-hero-inner{
+  position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; width:100%;
+  display:grid; grid-template-columns:1.1fr .9fr; gap:50px; align-items:center;
+}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px; font-size:.82rem; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--violet); margin-bottom:18px;
+}
+.plans-hero-copy h1{ font-size:clamp(2.4rem,4.6vw,3.7rem); font-weight:800; letter-spacing:-.03em; line-height:1.08; }
+.plans-hero-copy p{ margin-top:20px; font-size:1.08rem; color:var(--ink-soft); line-height:1.6; max-width:480px; }
+.plans-hero-actions{ margin-top:32px; display:flex; gap:14px; flex-wrap:wrap; }
+
+/* floating 3D plan stack */
+.plan3d-stack{
+  position:relative; width:100%; max-width:360px; aspect-ratio:1/1; margin:0 auto;
+  perspective:1400px;
+}
+.plan3d-card{
+  position:absolute; left:50%; top:50%; width:74%; aspect-ratio:16/9; border-radius:var(--radius-l);
+  border:1px solid var(--glass-border); background:var(--glass-bg-strong);
+  -webkit-backdrop-filter:blur(18px) saturate(160%); backdrop-filter:blur(18px) saturate(160%);
+  box-shadow:var(--glass-shadow);
+  display:flex; flex-direction:column; justify-content:center; gap:4px; padding:0 26px;
+  cursor:pointer; transition:box-shadow .3s ease; will-change:transform;
+}
+.plan3d-card:hover{ box-shadow:0 30px 70px -30px rgba(30,25,60,.4); }
+.plan3d-card.featured{
+  background:linear-gradient(135deg, rgba(123,110,246,.92), rgba(90,169,230,.9)); color:#fff; border-color:transparent;
+}
+.plan3d-tag{ font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; opacity:.65; }
+.plan3d-name{ font-size:1.25rem; font-weight:800; letter-spacing:-.01em; }
+.plan3d-note{ font-size:.82rem; opacity:.65; }
+
+@media (max-width:960px){
+  .plans-hero-inner{ grid-template-columns:1fr; text-align:center; }
+  .plans-hero-copy p{ margin-left:auto; margin-right:auto; }
+  .plans-hero-actions{ justify-content:center; }
+  .plan3d-stack{ margin-top:10px; max-width:300px; }
+}
+
+/* ---------- AT A GLANCE ---------- */
+.glance-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:stretch; }
+.glance-col{
+  border-radius:var(--radius-l); padding:32px 28px; display:flex; flex-direction:column; gap:18px;
+  position:relative;
+}
+.glance-col.featured{ box-shadow:0 0 0 2px var(--violet), var(--glass-shadow); }
+.glance-tag{
+  position:absolute; top:-13px; left:28px; background:linear-gradient(120deg,var(--violet),var(--pink));
+  color:#fff; font-size:.72rem; font-weight:700; padding:5px 14px; border-radius:100px;
+}
+.glance-col h3{ font-size:1.1rem; font-weight:700; }
+.glance-price{ font-size:1.6rem; font-weight:800; letter-spacing:-.02em; }
+.glance-price span{ font-size:.85rem; font-weight:500; color:var(--ink-soft); }
+.glance-label{ display:block; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); margin-bottom:10px; }
+.glance-list ul{ display:flex; flex-direction:column; gap:9px; }
+.glance-list li{ font-size:.88rem; padding-left:24px; position:relative; line-height:1.4; }
+.glance-yes li::before{ content:'✓'; position:absolute; left:0; color:#22c55e; font-weight:700; }
+.glance-no li::before{ content:'—'; position:absolute; left:2px; color:var(--ink-soft); opacity:.6; }
+.glance-no li{ color:var(--ink-soft); }
+.glance-no li.glance-none{ padding-left:0; color:var(--ink-soft); font-style:italic; }
+.glance-no li.glance-none::before{ content:''; }
+
+@media (max-width:900px){ .glance-grid{ grid-template-columns:1fr; } }
+
+/* ---------- FULL COMPARISON TABLE (tabs reuse .tabs/.tab-panel from style.css) ---------- */
+.plans-panel{ display:none; }
+.plans-panel.active{ display:block; animation:panelIn .5s var(--ease); }
+
+.compare-wrap{ overflow-x:auto; border-radius:var(--radius-l); border:1px solid var(--line); }
+.compare-table{ width:100%; border-collapse:collapse; min-width:520px; }
+.compare-table th, .compare-table td{ padding:16px 20px; text-align:center; border-bottom:1px solid var(--line); font-size:.9rem; }
+.compare-table th:first-child, .compare-table td:first-child{ text-align:left; color:var(--ink-soft); font-weight:500; }
+.compare-table thead th{ background:var(--paper-dim); font-weight:700; color:var(--ink); }
+.compare-table thead th:first-child{ text-align:left; }
+.compare-table tbody tr{ opacity:0; transform:translateY(10px); transition:opacity .5s var(--ease), transform .5s var(--ease); }
+.compare-table tbody tr.in{ opacity:1; transform:translateY(0); }
+.compare-table .yes{ color:#22c55e; font-size:1.05rem; }
+.compare-table .no{ color:var(--line); font-size:1.1rem; }
+.compare-table tbody tr:last-child td{ border-bottom:none; }
+
+@media (max-width:900px){
+  .tabs{ grid-template-columns:1fr; }
+  .tab-list{ position:static; flex-direction:row; overflow-x:auto; gap:8px; }
+}

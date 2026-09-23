@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura — Privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="privacy.css">
+</head>
+<body>
+
+<div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- NAV -->
+<header id="siteNav" class="visible solid">
+  <div class="nav-inner">
+    <a href="index.html#home" class="nav-mark">Aura</a>
+    <nav class="nav-links">
+      <a href="intelligence.html">Intelligence</a>
+      <a href="design.html">Design</a>
+      <a href="privacy.html" class="active">Privacy</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <a href="plans.html" class="nav-cta">Get Aura</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="intelligence.html">Intelligence</a>
+    <a href="design.html">Design</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="plans.html" class="nav-cta-mobile">Get Aura</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO / ROUTING -->
+  <section class="privacy-hero" id="home">
+    <canvas class="ambient-orb-canvas" id="privacyOrbCanvas" aria-hidden="true"></canvas>
+    <div class="privacy-hero-inner">
+      <div class="privacy-hero-copy" data-reveal>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--violet);margin-bottom:18px;">Privacy</span>
+        <h1>Privacy isn't a<br>setting here.</h1>
+        <p>Most questions never leave your device. The rare ones that do travel encrypted, get answered, and are then discarded — not stored, not reviewed, not sold.</p>
+        <div class="privacy-hero-actions">
+          <a href="#mix" class="btn btn-primary">See the split</a>
+          <a href="#delete" class="btn btn-ghost">How deletion works</a>
+        </div>
+
+        <div class="route-chips">
+          <span class="route-chips-label">Try a question</span>
+          <button class="route-chip" data-mode="local"><span class="dot" style="background:#3ecf6a;"></span>"What's 12% of 340?"</button>
+          <button class="route-chip" data-mode="local"><span class="dot" style="background:#3ecf6a;"></span>"Remind me to call mum at 6"</button>
+          <button class="route-chip" data-mode="cloud"><span class="dot" style="background:var(--violet);"></span>"Summarize this 40-page contract"</button>
+          <button class="route-chip" data-mode="cloud"><span class="dot" style="background:var(--violet);"></span>"Plan a 5-city trip on a budget"</button>
+        </div>
+      </div>
+
+      <div class="route-stage glass" id="routeStage">
+        <svg class="route-svg" viewBox="0 0 400 360" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M 64 180 Q 200 43 336 180" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 8"/>
+        </svg>
+        <div class="route-node device" id="deviceNode">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+          <span>Your device</span>
+        </div>
+        <div class="route-node cloud" id="cloudNode">
+          <svg viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.5-7.97A5.5 5.5 0 0 1 17 9a4 4 0 0 1-1 7.9"/></svg>
+          <span>Aura cloud</span>
+        </div>
+        <div class="route-lock" id="routeLock">🔒</div>
+        <div class="route-packet" id="routePacket"></div>
+        <div class="route-status" id="routeStatus"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSING MIX -->
+  <section id="mix" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Most of it never leaves.</h2>
+      <p>Drag the slider to raise how much Aura is willing to handle entirely on-device.</p>
+    </div>
+
+    <div class="mix-wrap" data-reveal>
+      <div class="mix-donut-card glass glass-spot">
+        <svg class="mix-donut" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="80" fill="none" stroke="var(--paper-dim)" stroke-width="20"/>
+          <circle id="mixArc" cx="100" cy="100" r="80" fill="none" stroke="url(#mixGrad)" stroke-width="20"
+                  stroke-linecap="round" transform="rotate(-90 100 100)" style="transition:stroke-dasharray .5s var(--ease);"/>
+          <defs>
+            <linearGradient id="mixGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="var(--violet)"/>
+              <stop offset="100%" stop-color="var(--blue)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="mix-donut-label">
+          <div class="big" id="mixPercent">43%</div>
+          <div class="small">handled on-device</div>
+        </div>
+        <input type="range" class="mix-slider" id="mixSlider" min="0" max="100" value="35">
+      </div>
+
+      <div class="mix-columns">
+        <div class="mix-col glass">
+          <div class="mix-col-title"><span class="dot" style="background:var(--violet);"></span>On your device</div>
+          <div id="localCol"></div>
+        </div>
+        <div class="mix-col glass">
+          <div class="mix-col-title"><span class="dot" style="background:var(--blue);"></span>Sent to the cloud</div>
+          <div id="cloudCol"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENCRYPTION -->
+  <section id="encryption" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Encrypted, always.</h2>
+      <p>Type something below and watch what actually travels when a question does leave your device.</p>
+    </div>
+
+    <div class="crypt-card glass glass-spot" data-reveal>
+      <div class="crypt-row">
+        <input type="text" class="crypt-input" id="cryptInput" placeholder="Meet me at 6 near the old bridge" maxlength="60">
+        <button class="btn btn-primary" id="encryptBtn">Encrypt</button>
+        <button class="btn btn-ghost" id="decryptBtn">Decrypt on this device</button>
+      </div>
+      <div class="crypt-display" id="cryptDisplay">Meet me at 6 near the old bridge</div>
+      <p class="crypt-status" id="cryptStatus">This is what your message looks like before you encrypt it.</p>
+    </div>
+  </section>
+
+  <!-- DELETE -->
+  <section id="delete" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Delete means delete.</h2>
+      <p>Removing a conversation clears it everywhere Aura keeps a copy — not just from the one screen you're looking at.</p>
+    </div>
+
+    <div class="delete-card glass glass-spot" data-reveal>
+      <div class="delete-nodes">
+        <div class="delete-node" id="dn1"><div class="dn-icon">1</div><div class="dn-label">This device</div></div>
+        <div class="delete-node" id="dn2"><div class="dn-icon">2</div><div class="dn-label">Sync servers</div></div>
+        <div class="delete-node" id="dn3"><div class="dn-icon">3</div><div class="dn-label">Backups</div></div>
+      </div>
+      <p class="delete-status" id="deleteStatus">Nothing deleted yet — try it.</p>
+      <button class="btn btn-primary delete-run" id="deleteRun">Delete this conversation</button>
+    </div>
+  </section>
+
+  <!-- PERMISSIONS -->
+  <section id="permissions" class="section">
+    <div class="section-head" data-reveal>
+      <h2>You decide what it can see.</h2>
+      <p>Every permission below starts off. Aura asks, in the moment, only when a task actually needs it.</p>
+    </div>
+
+    <div class="perm-card glass glass-spot" data-reveal>
+      <div class="perm-row">
+        <div class="perm-icon"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M19 11a7 7 0 0 1-14 0M12 19v3"/></svg></div>
+        <div class="perm-text"><h4>Microphone</h4><p>Only while you're actively talking to Aura.</p></div>
+        <button class="toggle-switch perm-switch" role="switch" aria-checked="false" data-name="Microphone"><span class="toggle-knob"></span></button>
+      </div>
+      <div class="perm-row">
+        <div class="perm-icon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l2-3h4l2 3"/><circle cx="12" cy="13" r="3.5"/></svg></div>
+        <div class="perm-text"><h4>Camera</h4><p>For visual questions — turned off the moment you're done.</p></div>
+        <button class="toggle-switch perm-switch" role="switch" aria-checked="false" data-name="Camera"><span class="toggle-knob"></span></button>
+      </div>
+      <div class="perm-row">
+        <div class="perm-icon"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+        <div class="perm-text"><h4>Files &amp; folders</h4><p>Only the one you point Aura to, for that one task.</p></div>
+        <button class="toggle-switch perm-switch" role="switch" aria-checked="true" data-name="Files &amp; folders"><span class="toggle-knob"></span></button>
+      </div>
+      <div class="perm-row">
+        <div class="perm-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div class="perm-text"><h4>Location</h4><p>Approximate, and only for things that genuinely need it.</p></div>
+        <button class="toggle-switch perm-switch" role="switch" aria-checked="false" data-name="Location"><span class="toggle-knob"></span></button>
+      </div>
+    </div>
+    <p class="perm-summary" id="permSummary" data-reveal></p>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-band" data-reveal>
+    <h2>Private by default. Always.</h2>
+    <a href="pricing.html" class="btn btn-primary btn-lg">Get Aura</a>
+    <p class="cta-note">Available on Mac, iPhone, iPad, and the web.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <span class="nav-mark">Aura</span>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="intelligence.html">Intelligence</a>
+        <a href="design.html">Design</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="plans.html">Compare plans</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Newsroom</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aura. A concept design, not affiliated with Apple Inc.</p>
+  </div>
+</footer>
+
+<script src="wireorb.js"></script>
+<script src="privacy.js"></script>
+</body>
+</html>

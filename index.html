@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura — A calmer kind of intelligent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="intro-sticky">
+    <div class="orb-field" aria-hidden="true">
+      <div class="blob blob-a"></div>
+      <div class="blob blob-b"></div>
+      <div class="blob blob-c"></div>
+      <div class="blob blob-d"></div>
+      <div class="grain"></div>
+    </div>
+    <canvas class="intro-orb-canvas" id="introOrbCanvas" aria-hidden="true"></canvas>
+    <div class="intro-boot-ring" aria-hidden="true"></div>
+    <div class="intro-boot-ring ring-2" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <div class="intro-copy">
+      <p class="intro-line" data-line="0">Hello! :)</p>
+      <p class="intro-line" data-line="1">I'm Aura.</p>
+      <p class="intro-line" data-line="2">Intelligence, without the noise.</p>
+    </div>
+
+    <div class="scroll-cue" id="scrollCue">
+      <span>Scroll</span>
+      <i></i>
+    </div>
+  </div>
+</section>
+
+<!-- NAV -->
+<header id="siteNav">
+  <div class="nav-inner">
+    <a href="index.html#home" class="nav-mark">Aura</a>
+    <nav class="nav-links">
+      <a href="intelligence.html">Intelligence</a>
+      <a href="design.html">Design</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <a href="plans.html" class="nav-cta">Get Aura</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="intelligence.html">Intelligence</a>
+    <a href="design.html">Design</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="plans.html" class="nav-cta-mobile">Get Aura</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section id="home" class="hero">
+    <div class="hero-orb" aria-hidden="true">
+      <div class="blob blob-a"></div>
+      <div class="blob blob-b"></div>
+    </div>
+    <div class="hero-copy" data-reveal>
+      <h1>A calmer kind<br>of intelligent.</h1>
+      <p>Aura reasons through problems out loud, remembers what your work actually needs, and stays on your device whenever it can.</p>
+      <div class="hero-actions">
+        <a href="index.html#pricing" class="btn btn-primary">Get Aura</a>
+        <a href="intelligence.html" class="btn btn-ghost">See how it thinks</a>
+      </div>
+
+      <form class="hero-demo glass glass-spot" id="demoForm">
+        <span class="demo-dot"></span>
+        <input id="demoInput" type="text" placeholder="Ask Aura something…" autocomplete="off" maxlength="80">
+        <button type="button" class="demo-mic" id="demoMic" aria-label="Ask by voice" title="Ask by voice">
+          <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M19 11a7 7 0 0 1-14 0M12 19v3"/></svg>
+        </button>
+        <button type="submit" class="demo-send" aria-label="Send">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+      <div class="demo-suggestions" id="demoSuggestions">
+        <button type="button" class="demo-chip">Is my data private?</button>
+        <button type="button" class="demo-chip">What languages do you speak?</button>
+        <button type="button" class="demo-chip">How much is Pro?</button>
+      </div>
+      <div class="demo-reply" id="demoReply"></div>
+    </div>
+  </section>
+
+  <!-- DESIGN -->
+  <section id="design" class="section design">
+    <div class="section-head" data-reveal>
+      <h2>Built like it looks.</h2>
+      <p>Every part of Aura is designed with the same restraint it uses to answer you.</p>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-visual glass glass-spot tilt visual-blank" data-reveal></div>
+      <div class="feature-text" data-reveal>
+        <h3>Every screen starts blank.</h3>
+        <p>No dashboard to learn, no settings to configure before your first question. Aura opens to a single line and gets out of the way.</p>
+      </div>
+    </div>
+
+    <div class="feature-row reverse">
+      <div class="feature-visual glass glass-spot tilt visual-type" data-reveal>
+        <span class="type-sample big">Aa</span>
+        <span class="type-sample small">Aa</span>
+      </div>
+      <div class="feature-text" data-reveal>
+        <h3>Typography that breathes.</h3>
+        <p>One typeface, one clear scale, set with enough room around it that a long answer never feels like a wall of text.</p>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-visual glass glass-spot tilt visual-motion" data-reveal>
+        <div class="motion-dot"></div>
+      </div>
+      <div class="feature-text" data-reveal>
+        <h3>Motion with a reason.</h3>
+        <p>Things move on this page when something changes — a tab, an answer, a reveal. Never just to prove it can.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-band" data-reveal>
+    <div class="stat">
+      <span class="stat-num" data-count="94">0</span><span class="stat-suffix">%</span>
+      <p>of replies processed on-device</p>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-count="52">0</span>
+      <p>languages, without switching modes</p>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-count="0" data-decimal="4">0</span><span class="stat-suffix">s</span>
+      <p>median time to first word</p>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-count="3">0</span>
+      <p>platforms, one conversation</p>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section id="privacy" class="section privacy">
+    <div class="section-head" data-reveal>
+      <h2>Private by default, not by setting.</h2>
+      <p>Aura is built so the safest option is also the only option.</p>
+    </div>
+
+    <div class="privacy-rows">
+      <div class="privacy-row" data-reveal>
+        <div class="privacy-icon"><svg viewBox="0 0 48 48"><rect x="10" y="20" width="28" height="20" rx="4"/><path d="M16 20v-6a8 8 0 0 1 16 0v6"/></svg></div>
+        <div>
+          <h3>Processed on your device when it can be.</h3>
+          <p>Short questions and everyday tasks are handled right where you're sitting. Only the harder ones ever leave.</p>
+        </div>
+      </div>
+      <div class="privacy-row" data-reveal>
+        <div class="privacy-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 16v8l6 4"/></svg></div>
+        <div>
+          <h3>Nothing you ask trains a model without asking first.</h3>
+          <p>Improving Aura is opt-in, one toggle, explained in plain language — not buried three menus deep.</p>
+        </div>
+      </div>
+      <div class="privacy-row" data-reveal>
+        <div class="privacy-icon"><svg viewBox="0 0 48 48"><path d="M14 16h20l-2 22a3 3 0 0 1-3 3H19a3 3 0 0 1-3-3z"/><path d="M20 16v-3a4 4 0 0 1 8 0v3"/></svg></div>
+        <div>
+          <h3>Delete a conversation and it's actually gone.</h3>
+          <p>Not archived, not "hidden from you" — removed from every place Aura keeps a copy, within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq glass" data-reveal>
+      <button class="faq-item" data-faq>
+        <span class="faq-q">Can I use Aura without an account?</span>
+        <span class="faq-plus"></span>
+        <span class="faq-a">Yes. A local session works fully on-device with no sign-in — you'll only need an account to sync across your own devices.</span>
+      </button>
+      <button class="faq-item" data-faq>
+        <span class="faq-q">Does Aura read my files without asking?</span>
+        <span class="faq-plus"></span>
+        <span class="faq-a">No. Aura only looks at a file, folder, or app the moment you point it there, for that one task.</span>
+      </button>
+      <button class="faq-item" data-faq>
+        <span class="faq-q">Who can see my conversations?</span>
+        <span class="faq-plus"></span>
+        <span class="faq-a">You. Conversations are encrypted end-to-end between your devices and are never reviewed for advertising.</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section pricing">
+    <div class="section-head" data-reveal>
+      <h2>Choose how far you take it.</h2>
+      <p>Start free. Move up only when you actually need more.</p>
+    </div>
+
+    <div class="price-toggle glass glass-spot" data-reveal>
+      <span class="price-toggle-label active" data-period="monthly">Monthly</span>
+      <button class="toggle-switch" id="periodSwitch" role="switch" aria-checked="false" aria-label="Switch to yearly billing">
+        <span class="toggle-knob"></span>
+      </button>
+      <span class="price-toggle-label" data-period="yearly">Yearly <em>2 months free</em></span>
+    </div>
+
+    <div class="price-grid">
+      <div class="price-card glass glass-spot tilt" data-reveal>
+        <h3>Aura</h3>
+        <p class="price-amount">Free</p>
+        <p class="price-desc">Everyday questions, on-device by default.</p>
+        <ul>
+          <li>Unlimited on-device replies</li>
+          <li>3 platforms, one conversation</li>
+          <li>Standard reasoning depth</li>
+        </ul>
+        <a href="#" class="btn btn-ghost btn-block">Choose Free</a>
+      </div>
+
+      <div class="price-card featured glass glass-spot tilt" data-reveal>
+        <span class="price-tag">Most chosen</span>
+        <h3>Aura Pro</h3>
+        <p class="price-amount"><span class="price-num" data-monthly="14" data-yearly="12">$14</span><span class="price-period">/month</span></p>
+        <p class="price-desc">Deeper reasoning and a longer memory.</p>
+        <ul>
+          <li>Everything in Aura</li>
+          <li>Extended reasoning depth</li>
+          <li>Project memory across months</li>
+          <li>Priority response speed</li>
+        </ul>
+        <a href="#" class="btn btn-primary btn-block">Choose Pro</a>
+      </div>
+
+      <div class="price-card glass glass-spot tilt" data-reveal>
+        <h3>Aura Studio</h3>
+        <p class="price-amount"><span class="price-num" data-monthly="42" data-yearly="35">$42</span><span class="price-period">/month</span></p>
+        <p class="price-desc">For small teams building on Aura.</p>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Shared team memory</li>
+          <li>Admin & usage controls</li>
+          <li>Direct support line</li>
+        </ul>
+        <a href="#" class="btn btn-ghost btn-block">Choose Studio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-band" data-reveal>
+    <h2>Aura is ready when you are.</h2>
+    <a href="index.html#pricing" class="btn btn-primary btn-lg">Get Aura</a>
+    <p class="cta-note">Available on Mac, iPhone, iPad, and the web.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <span class="nav-mark">Aura</span>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="intelligence.html">Intelligence</a>
+        <a href="index.html#design">Design</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="plans.html">Compare plans</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Newsroom</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="index.html#privacy">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aura. A concept design, not affiliated with Apple Inc.</p>
+  </div>
+</footer>
+
+<script src="wireorb.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

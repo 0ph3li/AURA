@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura — What's in each plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="plans.css">
+</head>
+<body>
+
+<div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- NAV -->
+<header id="siteNav" class="visible solid">
+  <div class="nav-inner">
+    <a href="index.html#home" class="nav-mark">Aura</a>
+    <nav class="nav-links">
+      <a href="intelligence.html">Intelligence</a>
+      <a href="design.html">Design</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <a href="pricing.html#plans" class="nav-cta">Choose a plan</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="intelligence.html">Intelligence</a>
+    <a href="design.html">Design</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="pricing.html#plans" class="nav-cta-mobile">Choose a plan</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="plans-hero" id="home">
+    <canvas class="ambient-orb-canvas" id="plansOrbCanvas" aria-hidden="true"></canvas>
+    <div class="plans-hero-inner">
+      <div class="plans-hero-copy" data-reveal>
+        <span class="eyebrow">What you get</span>
+        <h1>Every plan, laid<br>completely bare.</h1>
+        <p>No asterisks, no "contact sales" for basic facts. Here's exactly what changes between Aura, Pro, and Studio — feature by feature, not just price by price.</p>
+        <div class="plans-hero-actions">
+          <a href="#glance" class="btn btn-primary">The short version</a>
+          <a href="#matrix" class="btn btn-ghost">Full feature matrix</a>
+        </div>
+      </div>
+
+      <div class="plan3d-stack" id="plan3dStack" aria-hidden="true">
+        <div class="plan3d-card" data-depth="1" data-x="-58" data-y="-76" data-rot="-6">
+          <span class="plan3d-tag">Free</span>
+          <span class="plan3d-name">Aura</span>
+          <span class="plan3d-note">On-device, always</span>
+        </div>
+        <div class="plan3d-card" data-depth="2" data-x="-18" data-y="58" data-rot="4">
+          <span class="plan3d-tag">Team</span>
+          <span class="plan3d-name">Aura Studio</span>
+          <span class="plan3d-note">$42/seat/month</span>
+        </div>
+        <div class="plan3d-card featured" data-depth="3" data-x="38" data-y="-8" data-rot="-2">
+          <span class="plan3d-tag">Most chosen</span>
+          <span class="plan3d-name">Aura Pro</span>
+          <span class="plan3d-note">$14/month</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section id="glance" class="section">
+    <div class="section-head" data-reveal>
+      <h2>The short version.</h2>
+      <p>What each plan actually includes — and, just as important, what it deliberately leaves out.</p>
+    </div>
+
+    <div class="glance-grid" data-reveal>
+      <div class="glance-col glass glass-spot tilt">
+        <h3>Aura</h3>
+        <p class="glance-price">Free</p>
+        <div class="glance-list glance-yes">
+          <span class="glance-label">Included</span>
+          <ul>
+            <li>Unlimited on-device replies</li>
+            <li>3 platforms, one conversation</li>
+            <li>Standard reasoning depth</li>
+            <li>Community support</li>
+          </ul>
+        </div>
+        <div class="glance-list glance-no">
+          <span class="glance-label">Not included</span>
+          <ul>
+            <li>Extended reasoning depth</li>
+            <li>Project memory across months</li>
+            <li>Shared team memory</li>
+            <li>Admin &amp; usage controls</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="glance-col featured glass glass-spot tilt">
+        <span class="glance-tag">Most chosen</span>
+        <h3>Aura Pro</h3>
+        <p class="glance-price">$14<span>/month</span></p>
+        <div class="glance-list glance-yes">
+          <span class="glance-label">Included</span>
+          <ul>
+            <li>Everything in Aura</li>
+            <li>Extended reasoning depth</li>
+            <li>Project memory across months</li>
+            <li>Priority response speed</li>
+          </ul>
+        </div>
+        <div class="glance-list glance-no">
+          <span class="glance-label">Not included</span>
+          <ul>
+            <li>Shared team memory</li>
+            <li>Admin &amp; usage controls</li>
+            <li>Unlimited platforms &amp; seats</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="glance-col glass glass-spot tilt">
+        <h3>Aura Studio</h3>
+        <p class="glance-price">$42<span>/seat/month</span></p>
+        <div class="glance-list glance-yes">
+          <span class="glance-label">Included</span>
+          <ul>
+            <li>Everything in Pro</li>
+            <li>Shared team memory</li>
+            <li>Admin &amp; usage controls</li>
+            <li>Direct support line</li>
+            <li>Unlimited platforms &amp; seats</li>
+          </ul>
+        </div>
+        <div class="glance-list glance-no">
+          <span class="glance-label">Not included</span>
+          <ul>
+            <li class="glance-none">Nothing held back</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL COMPARISON -->
+  <section id="matrix" class="section">
+    <div class="section-head" data-reveal>
+      <h2>The full comparison.</h2>
+      <p>Every category, every row — switch tabs to see how a plan holds up where it actually matters to you.</p>
+    </div>
+
+    <div class="tabs" data-reveal style="margin-top:48px;">
+      <div class="tab-list" role="tablist" aria-label="Comparison categories">
+        <button class="tab-btn active" data-tab="reasoning" role="tab" aria-selected="true">Reasoning</button>
+        <button class="tab-btn" data-tab="memory" role="tab" aria-selected="false">Memory</button>
+        <button class="tab-btn" data-tab="access" role="tab" aria-selected="false">Platforms &amp; access</button>
+        <button class="tab-btn" data-tab="privacy" role="tab" aria-selected="false">Privacy &amp; security</button>
+        <button class="tab-btn" data-tab="support" role="tab" aria-selected="false">Support &amp; admin</button>
+      </div>
+
+      <div class="tab-stage">
+        <div class="tab-panel plans-panel active" id="panel-reasoning">
+          <div class="compare-wrap">
+            <table class="compare-table">
+              <thead><tr><th>Feature</th><th>Aura</th><th>Pro</th><th>Studio</th></tr></thead>
+              <tbody>
+                <tr><td>Reasoning depth</td><td>Standard</td><td>Extended</td><td>Extended</td></tr>
+                <tr><td>Multi-step planning</td><td>Basic</td><td>Full</td><td>Full</td></tr>
+                <tr><td>Priority response speed</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                <tr><td>Adjustable reasoning depth</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                <tr><td>Confidence flags on unsure answers</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-panel plans-panel" id="panel-memory">
+          <div class="compare-wrap">
+            <table class="compare-table">
+              <thead><tr><th>Feature</th><th>Aura</th><th>Pro</th><th>Studio</th></tr></thead>
+              <tbody>
+                <tr><td>Conversation memory</td><td>This session</td><td>Months</td><td>Months</td></tr>
+                <tr><td>Custom instructions saved</td><td>1</td><td>10</td><td>Unlimited</td></tr>
+                <tr><td>Cross-device sync</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                <tr><td>Shared team memory</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-panel plans-panel" id="panel-access">
+          <div class="compare-wrap">
+            <table class="compare-table">
+              <thead><tr><th>Feature</th><th>Aura</th><th>Pro</th><th>Studio</th></tr></thead>
+              <tbody>
+                <tr><td>Platforms</td><td>3</td><td>3</td><td>Unlimited</td></tr>
+                <tr><td>Seats</td><td>1</td><td>1</td><td>Any number</td></tr>
+                <tr><td>Offline, on-device mode</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                <tr><td>API access</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-panel plans-panel" id="panel-privacy">
+          <div class="compare-wrap">
+            <table class="compare-table">
+              <thead><tr><th>Feature</th><th>Aura</th><th>Pro</th><th>Studio</th></tr></thead>
+              <tbody>
+                <tr><td>On-device by default</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                <tr><td>End-to-end encrypted sync</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                <tr><td>Model training opt-out</td><td class="yes">✓ default</td><td class="yes">✓ default</td><td class="yes">✓ default</td></tr>
+                <tr><td>Data retention controls</td><td>Basic</td><td>Basic</td><td>Admin-managed</td></tr>
+                <tr><td>SSO / SAML</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-panel plans-panel" id="panel-support">
+          <div class="compare-wrap">
+            <table class="compare-table">
+              <thead><tr><th>Feature</th><th>Aura</th><th>Pro</th><th>Studio</th></tr></thead>
+              <tbody>
+                <tr><td>Support</td><td>Community</td><td>Priority email</td><td>Direct line</td></tr>
+                <tr><td>Usage &amp; seat controls</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+                <tr><td>Onboarding assistance</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-band" data-reveal>
+    <h2>Know what you want?</h2>
+    <a href="pricing.html#plans" class="btn btn-primary btn-lg">Get Aura</a>
+    <p class="cta-note">Switch plans anytime — upgrades apply immediately, no penalty either way.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <span class="nav-mark">Aura</span>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="intelligence.html">Intelligence</a>
+        <a href="design.html">Design</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="plans.html">Compare plans</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Newsroom</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aura. A concept design, not affiliated with Apple Inc.</p>
+  </div>
+</footer>
+
+<script src="wireorb.js"></script>
+<script src="plans.js"></script>
+</body>
+</html>

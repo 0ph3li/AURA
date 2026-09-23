@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura — Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="design.css">
+</head>
+<body>
+
+<div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- NAV -->
+<header id="siteNav" class="visible solid">
+  <div class="nav-inner">
+    <a href="index.html#home" class="nav-mark">Aura</a>
+    <nav class="nav-links">
+      <a href="intelligence.html">Intelligence</a>
+      <a href="design.html" class="active">Design</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <a href="plans.html" class="nav-cta">Get Aura</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="intelligence.html">Intelligence</a>
+    <a href="design.html">Design</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="plans.html" class="nav-cta-mobile">Get Aura</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="design-hero" id="home">
+    <div class="design-hero-inner">
+      <div class="design-hero-copy" data-reveal>
+        <span class="eyebrow" style="display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--violet);margin-bottom:18px;">Design</span>
+        <h1>Every decision is a<br>quiet one.</h1>
+        <p>Aura's interface isn't decorated after the fact — type, color, space and motion are the same four ingredients, used with restraint, everywhere.</p>
+        <div class="design-hero-actions">
+          <a href="#type" class="btn btn-primary">Play with type</a>
+          <a href="#components" class="btn btn-ghost">See the components</a>
+        </div>
+      </div>
+
+      <div class="layer-stack" id="layerStack" aria-hidden="true">
+        <div class="layer-card" data-depth="1" data-x="-46" data-y="70" data-rot="-6" data-target="motion">
+          <span class="layer-tag">04 · Motion</span>
+          <span class="layer-name">With intent</span>
+          <span class="layer-swatch" style="background:linear-gradient(135deg,var(--pink),var(--amber));"></span>
+        </div>
+        <div class="layer-card" data-depth="2" data-x="30" data-y="26" data-rot="4" data-target="space">
+          <span class="layer-tag">03 · Space</span>
+          <span class="layer-name">On an 8px grid</span>
+          <span class="layer-swatch" style="background:linear-gradient(135deg,var(--blue),var(--violet));"></span>
+        </div>
+        <div class="layer-card" data-depth="3" data-x="-22" data-y="-22" data-rot="-3" data-target="color">
+          <span class="layer-tag">02 · Color</span>
+          <span class="layer-name">Four hues, used sparingly</span>
+          <span class="layer-swatch" style="background:linear-gradient(135deg,var(--violet),var(--pink));"></span>
+        </div>
+        <div class="layer-card" data-depth="4" data-x="14" data-y="-64" data-rot="5" data-target="type">
+          <span class="layer-tag">01 · Type</span>
+          <span class="layer-name">One face, one scale</span>
+          <span class="layer-swatch" style="background:var(--ink);"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPE LAB -->
+  <section id="type" class="section">
+    <div class="section-head" data-reveal>
+      <h2>One typeface. Every mood.</h2>
+      <p>Manrope carries the entire interface — weight, size and tracking do the rest of the work.</p>
+    </div>
+
+    <div class="type-lab glass glass-spot" data-reveal>
+      <div class="type-controls">
+        <div class="type-control">
+          <label>Weight <span id="weightVal">700</span></label>
+          <input type="range" id="rangeWeight" min="300" max="800" step="100" value="700">
+        </div>
+        <div class="type-control">
+          <label>Size <span id="sizeVal">40px</span></label>
+          <input type="range" id="rangeSize" min="16" max="72" step="1" value="40">
+        </div>
+        <div class="type-control">
+          <label>Tracking <span id="trackVal">-1px</span></label>
+          <input type="range" id="rangeTrack" min="-2" max="4" step="0.5" value="-1">
+        </div>
+        <div class="type-preset-row">
+          <button class="type-preset active" data-weight="700" data-size="40" data-track="-1">Heading</button>
+          <button class="type-preset" data-weight="500" data-size="18" data-track="0">Body</button>
+          <button class="type-preset" data-weight="600" data-size="13" data-track="1.5">Label</button>
+          <button class="type-preset" data-weight="800" data-size="64" data-track="-2">Display</button>
+        </div>
+      </div>
+      <div class="type-preview-wrap">
+        <span class="type-preview" id="typePreview">Aura design system</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR -->
+  <section id="color" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Color, used with restraint.</h2>
+      <p>Four hues share the whole interface — never more than one or two on screen at once.</p>
+    </div>
+
+    <div class="color-wrap" data-reveal>
+      <div class="color-mixer glass glass-spot">
+        <div class="mixer-preview" id="mixerPreview">
+          <span class="mixer-hex" id="mixerHex" data-copy="mixer">#7B6EF6</span>
+        </div>
+        <input type="range" id="colorRange" min="0" max="100" step="0.5" value="0">
+      </div>
+      <div class="swatch-grid glass glass-spot">
+        <div class="swatch" data-copy="#7B6EF6" style="background:var(--violet);">
+          <span class="swatch-name">Violet</span>
+          <span class="swatch-hex">#7B6EF6</span>
+          <span class="copied-tag">Copied</span>
+        </div>
+        <div class="swatch" data-copy="#5AA9E6" style="background:var(--blue);">
+          <span class="swatch-name">Blue</span>
+          <span class="swatch-hex">#5AA9E6</span>
+          <span class="copied-tag">Copied</span>
+        </div>
+        <div class="swatch" data-copy="#FF7A9C" style="background:var(--pink);">
+          <span class="swatch-name">Pink</span>
+          <span class="swatch-hex">#FF7A9C</span>
+          <span class="copied-tag">Copied</span>
+        </div>
+        <div class="swatch" data-copy="#FFB56B" style="background:var(--amber);">
+          <span class="swatch-name">Amber</span>
+          <span class="swatch-hex">#FFB56B</span>
+          <span class="copied-tag">Copied</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPACE -->
+  <section id="space" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Space, on a grid.</h2>
+      <p>Every margin and gap is a multiple of 8px — it's why nothing on this site ever feels crowded or adrift.</p>
+    </div>
+
+    <div class="space-wrap" data-reveal>
+      <div class="space-controls">
+        <div class="space-toggle">
+          <button class="space-toggle-switch" id="gridToggle" role="switch" aria-checked="false" aria-label="Toggle grid overlay">
+            <span class="knob"></span>
+          </button>
+          <span>Show the 8px grid</span>
+        </div>
+        <div class="type-control">
+          <label>Spacing scale <span id="spaceScaleVal">1.0×</span></label>
+          <input type="range" id="spaceRange" min="0.5" max="2" step="0.1" value="1">
+        </div>
+      </div>
+      <div class="space-stage">
+        <div class="space-grid-overlay" id="gridOverlay"></div>
+        <div class="space-demo-card" id="spaceDemoCard" style="padding:20px; gap:8px;">
+          <div class="sd-line accent"></div>
+          <div class="sd-line" style="width:90%;"></div>
+          <div class="sd-line" style="width:75%;"></div>
+          <div class="sd-line" style="width:60%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTION -->
+  <section id="motion" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Motion with intent.</h2>
+      <p>Every easing curve on this site is one of four — pick one and watch how differently it feels.</p>
+    </div>
+
+    <div class="motion-wrap" data-reveal>
+      <div class="easing-list">
+        <button class="easing-btn" data-easing="snap"><strong>Snap</strong><span>cubic-bezier(.7,0,.3,1)</span></button>
+        <button class="easing-btn active" data-easing="glide"><strong>Glide</strong><span>cubic-bezier(.22,.9,.3,1)</span></button>
+        <button class="easing-btn" data-easing="bounce"><strong>Bounce</strong><span>cubic-bezier(.34,1.56,.64,1)</span></button>
+        <button class="easing-btn" data-easing="linear"><strong>Linear</strong><span>linear</span></button>
+      </div>
+      <div class="motion-stage glass glass-spot">
+        <svg class="motion-graph" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line x1="10" y1="90" x2="90" y2="90" stroke="var(--line)" stroke-width="1"/>
+          <line x1="10" y1="10" x2="10" y2="90" stroke="var(--line)" stroke-width="1"/>
+          <path id="graphActivePath" d="" fill="none" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="motion-track">
+          <div class="motion-ball" id="motionBall"></div>
+        </div>
+        <button class="btn btn-ghost motion-replay" id="motionReplay">Replay</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section id="components" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Built from the same pieces.</h2>
+      <p>Every button, toggle and card on this site is one of a handful of components, reused everywhere.</p>
+    </div>
+
+    <div class="tabs" data-reveal style="margin-top:48px;">
+      <div class="tab-list" role="tablist" aria-label="Component categories">
+        <button class="tab-btn active" data-tab="buttons" role="tab" aria-selected="true">Buttons</button>
+        <button class="tab-btn" data-tab="inputs" role="tab" aria-selected="false">Inputs</button>
+        <button class="tab-btn" data-tab="cards" role="tab" aria-selected="false">Cards</button>
+      </div>
+
+      <div class="tab-stage">
+        <div class="tab-panel active" id="panel-buttons">
+          <div class="panel-text">
+            <h3>Three weights, one shape.</h3>
+            <p>Primary for the one thing we want you to do, ghost for everything else, and a bigger size for moments that deserve it. Try hovering — every one is magnetic.</p>
+          </div>
+          <div class="panel-visual" style="background:var(--paper-dim); flex-direction:column; gap:18px;">
+            <div class="comp-buttons">
+              <a href="#" class="btn btn-primary" onclick="return false;">Primary</a>
+              <a href="#" class="btn btn-ghost" onclick="return false;">Ghost</a>
+            </div>
+            <div class="comp-buttons">
+              <a href="#" class="btn btn-primary btn-lg" onclick="return false;">Large primary</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-inputs">
+          <div class="panel-text">
+            <h3>Small controls, clear state.</h3>
+            <p>A toggle is either on or off — never a guess. Try flipping these; the same switch handles billing periods and privacy settings elsewhere on the site.</p>
+          </div>
+          <div class="panel-visual" style="background:var(--paper-dim);">
+            <div class="comp-input-demo">
+              <div class="comp-toggle-row">
+                <button class="space-toggle-switch demo-toggle" role="switch" aria-checked="true"><span class="knob"></span></button>
+                <span>Sync across devices</span>
+              </div>
+              <div class="comp-toggle-row">
+                <button class="space-toggle-switch demo-toggle" role="switch" aria-checked="false"><span class="knob"></span></button>
+                <span>Share anonymous usage</span>
+              </div>
+              <input class="comp-text-input" placeholder="Ask Aura something…">
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-cards">
+          <div class="panel-text">
+            <h3>Glass, everywhere it earns it.</h3>
+            <p>Cards get the frosted treatment only when they float above something — a demo, a stat, a price. Flat content stays flat.</p>
+          </div>
+          <div class="panel-visual" style="background:var(--paper-dim);">
+            <div class="comp-cards-row">
+              <div class="comp-mini-card glass glass-spot tilt">
+                <div class="mini-dot"></div>
+                <h5>Reasoning</h5>
+                <p>Step by step</p>
+              </div>
+              <div class="comp-mini-card glass glass-spot tilt">
+                <div class="mini-dot" style="background:linear-gradient(120deg,var(--blue),var(--amber));"></div>
+                <h5>Memory</h5>
+                <p>What matters</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-band" data-reveal>
+    <h2>See the whole system in motion.</h2>
+    <a href="pricing.html" class="btn btn-primary btn-lg">Get Aura</a>
+    <p class="cta-note">Available on Mac, iPhone, iPad, and the web.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <span class="nav-mark">Aura</span>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="intelligence.html">Intelligence</a>
+        <a href="design.html">Design</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="plans.html">Compare plans</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Newsroom</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="index.html#privacy">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aura. A concept design, not affiliated with Apple Inc.</p>
+  </div>
+</footer>
+
+<script src="design.js"></script>
+</body>
+</html>

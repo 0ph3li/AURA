@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura — How it thinks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="intelligence.css">
+</head>
+<body class="intel-page">
+
+<div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- NAV -->
+<header id="siteNav" class="visible solid">
+  <div class="nav-inner">
+    <a href="index.html#home" class="nav-mark">Aura</a>
+    <nav class="nav-links">
+      <a href="intelligence.html" class="active">Intelligence</a>
+      <a href="design.html">Design</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <a href="plans.html" class="nav-cta">Get Aura</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="intelligence.html">Intelligence</a>
+    <a href="design.html">Design</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="plans.html" class="nav-cta-mobile">Get Aura</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="intel-hero" id="home">
+    <canvas class="intel-canvas" id="intelCanvas" aria-hidden="true"></canvas>
+    <div class="intel-hero-inner">
+      <div class="intel-hero-copy" data-reveal>
+        <span class="eyebrow">Intelligence</span>
+        <h1>Reasoning you can<br>actually follow.</h1>
+        <p>Aura doesn't just answer — it thinks in steps you can see, changes its mind when a step doesn't hold up, and tells you when it's genuinely unsure.</p>
+        <div class="intel-hero-actions">
+          <a href="#live" class="btn btn-primary">Watch it think</a>
+          <a href="#playground" class="btn btn-ghost">Try it yourself</a>
+        </div>
+        <div class="intel-live-chip glass glass-spot">
+          <span class="chip-dot"></span>
+          <span class="chip-text">Live: comparing two solutions before answering…</span>
+        </div>
+      </div>
+
+      <div class="intel-atom-stage" id="atomStage" aria-hidden="true">
+        <div class="atom-core"></div>
+        <div class="atom-ring" style="width:64%; height:64%;"></div>
+        <div class="atom-ring" style="width:88%; height:88%;"></div>
+        <div class="atom-ring" style="width:100%; height:100%;"></div>
+        <div class="atom-node" data-target="reasoning" data-speed="0.5" data-radius="0.32" data-tilt="0.4" data-phase="0"><i style="background:var(--violet)"></i>Reasoning</div>
+        <div class="atom-node" data-target="creativity" data-speed="0.36" data-radius="0.44" data-tilt="0.45" data-phase="2.1"><i style="background:var(--pink)"></i>Creativity</div>
+        <div class="atom-node" data-target="memory" data-speed="0.42" data-radius="0.5" data-tilt="0.35" data-phase="4.2"><i style="background:var(--blue)"></i>Memory</div>
+        <div class="atom-node" data-target="vision" data-speed="0.3" data-radius="0.38" data-tilt="0.5" data-phase="5.6"><i style="background:var(--amber)"></i>Vision</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUR WAYS OF THINKING -->
+  <section id="ways" class="section">
+    <div class="intel-tabhead" data-reveal>
+      <div class="section-head">
+        <h2>Four ways of thinking.</h2>
+        <p>Different questions call for different kinds of attention. Aura switches between them on its own.</p>
+      </div>
+    </div>
+
+    <div class="tabs" data-reveal style="margin-top:48px;">
+      <div class="tab-list" role="tablist" aria-label="Ways Aura thinks">
+        <button class="tab-btn active" data-tab="reasoning" role="tab" aria-selected="true">Reasoning</button>
+        <button class="tab-btn" data-tab="creativity" role="tab" aria-selected="false">Creativity</button>
+        <button class="tab-btn" data-tab="memory" role="tab" aria-selected="false">Memory</button>
+        <button class="tab-btn" data-tab="vision" role="tab" aria-selected="false">Vision</button>
+      </div>
+
+      <div class="tab-stage">
+        <div class="tab-panel active" id="panel-reasoning">
+          <div class="panel-text">
+            <h3>Works the problem, not just the prompt.</h3>
+            <p>Aura breaks a hard question into smaller checks, follows each one, and drops the ones that don't hold up — instead of committing to the first plausible answer.</p>
+          </div>
+          <div class="panel-visual visual-reasoning">
+            <div class="mock-chat">
+              <div class="mock-row"><span class="mock-step">Understand the constraint</span></div>
+              <div class="mock-row done"><span class="mock-step">Try the direct approach</span></div>
+              <div class="mock-row active"><span class="mock-step">Check it against the edge case</span></div>
+              <div class="mock-row muted"><span class="mock-step">Fall back if it fails</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-creativity">
+          <div class="panel-text">
+            <h3>Drafts wide before it narrows.</h3>
+            <p>For open-ended work, Aura sketches a few real directions before committing to one — so the first version you see isn't the only one it considered.</p>
+          </div>
+          <div class="panel-visual visual-creativity">
+            <div class="mock-doc">
+              <div class="mock-line w-90"></div>
+              <div class="mock-line accent w-60"></div>
+              <div class="mock-line w-70"></div>
+              <div class="mock-line w-40"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-memory">
+          <div class="panel-text">
+            <h3>Remembers what mattered, not everything.</h3>
+            <p>Aura keeps the details that shape your next answer — a preference, a constraint, a decision already made — and lets the rest fade the way a good conversation should.</p>
+          </div>
+          <div class="panel-visual visual-memory">
+            <div class="mock-timeline">
+              <div class="mock-dot active"></div>
+              <div class="mock-dot"></div>
+              <div class="mock-dot active"></div>
+              <div class="mock-dot"></div>
+              <div class="mock-dot active"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-vision">
+          <div class="panel-text">
+            <h3>Reads a picture like it reads a sentence.</h3>
+            <p>A screenshot, a whiteboard photo, a page of handwriting — Aura pulls out the structure first, then answers about what's actually there.</p>
+          </div>
+          <div class="panel-visual visual-vision">
+            <div class="mock-frame">
+              <div class="mock-corner tl"></div>
+              <div class="mock-corner tr"></div>
+              <div class="mock-corner bl"></div>
+              <div class="mock-corner br"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCH IT THINK -->
+  <section id="live" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Watch it think, in real time.</h2>
+      <p>Pick a question. Aura's actual reasoning trace plays out below — not a script written after the fact.</p>
+    </div>
+
+    <div class="live-wrap" data-reveal>
+      <div class="live-prompts">
+        <button class="live-prompt-btn" data-trace="plan">"Plan a 5-day trip on a fixed budget"</button>
+        <button class="live-prompt-btn" data-trace="code">"Why does this function crash sometimes?"</button>
+        <button class="live-prompt-btn" data-trace="ethics">"Is it fair to auto-decline late applications?"</button>
+      </div>
+
+      <div class="live-panel glass glass-spot">
+        <div class="live-panel-head">
+          <span class="live-panel-title">Reasoning trace</span>
+          <span class="live-panel-timer" id="liveTimer">0.0s</span>
+        </div>
+        <div class="live-lines" id="liveLines"></div>
+        <div class="live-answer" id="liveAnswer"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENCHMARKS -->
+  <section id="benchmark" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Depth you can dial up.</h2>
+      <p>More reasoning steps cost a little more time — Aura spends it only when the question earns it.</p>
+    </div>
+
+    <div class="bench-grid" data-reveal>
+      <div class="bench-row">
+        <div class="bench-label">Quick<small>single pass</small></div>
+        <div class="bench-track"><div class="bench-fill" data-value="38"></div></div>
+        <div class="bench-value">38%</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">Standard<small>checked once</small></div>
+        <div class="bench-track"><div class="bench-fill" data-value="71"></div></div>
+        <div class="bench-value">71%</div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">Deep<small>multi-step</small></div>
+        <div class="bench-track"><div class="bench-fill" data-value="94"></div></div>
+        <div class="bench-value">94%</div>
+      </div>
+    </div>
+    <p class="bench-note" data-reveal>Share of hard reasoning questions answered correctly on Aura's internal eval set, by depth setting.</p>
+  </section>
+
+  <!-- PLAYGROUND -->
+  <section id="playground" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Try it as a thought experiment.</h2>
+      <p>Ask something, pick a depth, and watch the step count actually change.</p>
+    </div>
+
+    <div class="play-card glass glass-spot" data-reveal>
+      <div class="play-field">
+        <label for="playInput">Your question</label>
+        <textarea id="playInput" class="play-input" rows="3" placeholder="e.g. Should I refactor this now or ship first?"></textarea>
+        <label style="margin-top:20px;">Reasoning depth</label>
+        <div class="play-depths">
+          <button class="depth-btn" data-depth="quick">Quick</button>
+          <button class="depth-btn active" data-depth="standard">Standard</button>
+          <button class="depth-btn" data-depth="deep">Deep</button>
+        </div>
+        <button class="play-run" id="playRun">Run reasoning</button>
+      </div>
+      <div class="play-output" id="playOutput">
+        <p class="play-placeholder">Steps will appear here — try switching depth before you run it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODALITIES -->
+  <section class="section">
+    <div class="section-head" data-reveal>
+      <h2>One mind, many senses.</h2>
+      <p>Flip a card to see how Aura treats each kind of input differently.</p>
+    </div>
+
+    <div class="modal-grid" data-reveal>
+      <div class="modal-card">
+        <div class="modal-card-inner">
+          <div class="modal-face modal-front">
+            <div class="modal-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+            <h4>Text</h4>
+            <span>Conversation, writing, code</span>
+          </div>
+          <div class="modal-face modal-back">
+            <p>Reads for intent first — a question, a request, a vent — and matches its tone and depth to which one it actually is.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-card">
+        <div class="modal-card-inner">
+          <div class="modal-face modal-front">
+            <div class="modal-icon"><svg viewBox="0 0 24 24"><path d="M8 9l-5 3 5 3M16 9l5 3-5 3M13 5l-2 14"/></svg></div>
+            <h4>Code</h4>
+            <span>Reading, writing, debugging</span>
+          </div>
+          <div class="modal-face modal-back">
+            <p>Traces execution paths, not just syntax — so a fix addresses the assumption that broke, not just the line that crashed.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-card">
+        <div class="modal-card-inner">
+          <div class="modal-face modal-front">
+            <div class="modal-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h4>Vision</h4>
+            <span>Photos, screenshots, diagrams</span>
+          </div>
+          <div class="modal-face modal-back">
+            <p>Separates structure from content first — a chart's axes before its numbers, a UI's layout before its labels.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-card">
+        <div class="modal-card-inner">
+          <div class="modal-face modal-front">
+            <div class="modal-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M6 8v8M18 8v8"/></svg></div>
+            <h4>Audio</h4>
+            <span>Voice, tone, pacing</span>
+          </div>
+          <div class="modal-face modal-back">
+            <p>Picks up hesitation and emphasis, not just words — the difference between "sure" meant plainly and "sure" meant reluctantly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-band" data-reveal>
+    <h2>See what Aura can reason through.</h2>
+    <a href="pricing.html" class="btn btn-primary btn-lg">Get Aura</a>
+    <p class="cta-note">Available on Mac, iPhone, iPad, and the web.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <span class="nav-mark">Aura</span>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="intelligence.html">Intelligence</a>
+        <a href="index.html#design">Design</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="plans.html">Compare plans</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Newsroom</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="index.html#privacy">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aura. A concept design, not affiliated with Apple Inc.</p>
+  </div>
+</footer>
+
+<script src="intelligence.js"></script>
+</body>
+</html>

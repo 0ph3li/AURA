@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura — Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="pricing.css">
+</head>
+<body>
+
+<div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- NAV -->
+<header id="siteNav" class="visible solid">
+  <div class="nav-inner">
+    <a href="index.html#home" class="nav-mark">Aura</a>
+    <nav class="nav-links">
+      <a href="intelligence.html">Intelligence</a>
+      <a href="design.html">Design</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="pricing.html" class="active">Pricing</a>
+    </nav>
+    <a href="plans.html" class="nav-cta">Get Aura</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="intelligence.html">Intelligence</a>
+    <a href="design.html">Design</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="plans.html" class="nav-cta-mobile">Get Aura</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="pricing-hero" id="home">
+    <canvas class="ambient-orb-canvas" id="pricingOrbCanvas" aria-hidden="true"></canvas>
+    <div class="pricing-hero-inner">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--violet);margin-bottom:18px;">Pricing</span>
+      <h1 data-reveal>Pay for depth,<br>not access.</h1>
+      <p data-reveal>Everyday use is free, forever. You only pay when you want Aura to think longer, remember more, or work across a team.</p>
+
+      <div class="quiz-card glass glass-spot" data-reveal>
+        <div class="quiz-progress"><span></span><span></span></div>
+
+        <div class="quiz-step active" data-question="who">
+          <div class="quiz-question">Who's it for?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="me">Just me</button>
+            <button class="quiz-option" data-value="team">A team</button>
+          </div>
+        </div>
+        <div class="quiz-step" data-question="depth">
+          <div class="quiz-question">How often do you need deep, multi-step reasoning?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="rarely">Rarely</button>
+            <button class="quiz-option" data-value="sometimes">Sometimes</button>
+            <button class="quiz-option" data-value="constantly">Constantly</button>
+          </div>
+        </div>
+
+        <div class="quiz-result" id="quizResult">
+          <span class="qr-label" id="quizResultLabel"></span>
+          <h3 id="quizResultTitle"></h3>
+          <p id="quizResultText"></p>
+          <button class="quiz-restart" id="quizRestart">Start over</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section id="plans" class="section">
+    <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;" data-reveal>
+      <h2>Three ways to run it.</h2>
+      <p style="margin-left:auto;margin-right:auto;">Switch billing period any time — plans themselves never lock you in.</p>
+    </div>
+
+    <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+      <div class="audience-toggle" data-reveal>
+        <button class="audience-btn active" data-audience="individual">Individual</button>
+        <button class="audience-btn" data-audience="team">Team</button>
+      </div>
+      <div class="price-toggle glass glass-spot" data-reveal>
+        <span class="price-toggle-label active" data-period="monthly">Monthly</span>
+        <button class="toggle-switch" id="periodSwitch" role="switch" aria-checked="false" aria-label="Switch to yearly billing">
+          <span class="toggle-knob"></span>
+        </button>
+        <span class="price-toggle-label" data-period="yearly">Yearly <em>2 months free</em></span>
+      </div>
+    </div>
+
+    <div class="price-grid" style="margin-top:44px;">
+      <div class="price-card glass glass-spot tilt" data-plan="free" data-reveal>
+        <h3>Aura</h3>
+        <p class="price-amount">Free</p>
+        <p class="price-desc">Everyday questions, on-device by default.</p>
+        <ul>
+          <li>Unlimited on-device replies</li>
+          <li>3 platforms, one conversation</li>
+          <li>Standard reasoning depth</li>
+          <li>Community support</li>
+        </ul>
+        <a href="#" class="btn btn-ghost btn-block" onclick="return false;">Choose Free</a>
+      </div>
+
+      <div class="price-card featured glass glass-spot tilt" data-plan="pro" data-reveal>
+        <span class="price-tag">Most chosen</span>
+        <h3>Aura Pro</h3>
+        <p class="price-amount"><span class="price-num" data-monthly="14" data-yearly="12">$14</span><span class="price-period">/month</span></p>
+        <p class="price-desc">Deeper reasoning and a longer memory.</p>
+        <ul>
+          <li>Everything in Aura</li>
+          <li>Extended reasoning depth</li>
+          <li>Project memory across months</li>
+          <li>Priority response speed</li>
+        </ul>
+        <a href="#" class="btn btn-primary btn-block" onclick="return false;">Choose Pro</a>
+      </div>
+
+      <div class="price-card glass glass-spot tilt" data-plan="studio" data-reveal>
+        <h3>Aura Studio</h3>
+        <p class="price-amount"><span class="price-num" data-monthly="42" data-yearly="35">$42</span><span class="price-period">/seat/month</span></p>
+        <p class="price-desc">For teams building on Aura together.</p>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Shared team memory</li>
+          <li>Admin & usage controls</li>
+          <li>Direct support line</li>
+        </ul>
+        <a href="#" class="btn btn-ghost btn-block" onclick="return false;">Choose Studio</a>
+
+        <div class="seat-calc">
+          <label>Seats <span id="seatCount">5</span></label>
+          <input type="range" id="seatRange" min="1" max="50" value="5">
+          <p class="seat-total" id="seatTotal"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section id="compare" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Compare every detail.</h2>
+      <p>The short version: Pro thinks longer, Studio shares what it learns across your team.</p>
+    </div>
+
+    <div class="compare-wrap" data-reveal>
+      <table class="compare-table">
+        <thead>
+          <tr><th>Feature</th><th>Aura</th><th>Pro</th><th>Studio</th></tr>
+        </thead>
+        <tbody>
+          <tr class="group-row"><td colspan="4">Reasoning</td></tr>
+          <tr><td>Reasoning depth</td><td>Standard</td><td>Extended</td><td>Extended</td></tr>
+          <tr><td>Priority response speed</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Multi-step planning</td><td>Basic</td><td>Full</td><td>Full</td></tr>
+
+          <tr class="group-row"><td colspan="4">Memory</td></tr>
+          <tr><td>Conversation memory</td><td>This session</td><td>Months</td><td>Months</td></tr>
+          <tr><td>Shared team memory</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+
+          <tr class="group-row"><td colspan="4">Access</td></tr>
+          <tr><td>Platforms</td><td>3</td><td>3</td><td>Unlimited</td></tr>
+          <tr><td>Seats</td><td>1</td><td>1</td><td>Any number</td></tr>
+
+          <tr class="group-row"><td colspan="4">Support & admin</td></tr>
+          <tr><td>Support</td><td>Community</td><td>Priority email</td><td>Direct line</td></tr>
+          <tr><td>Usage & seat controls</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="section-head" data-reveal>
+      <h2>Billing questions.</h2>
+      <p>Anything else, just ask Aura directly — it knows its own pricing.</p>
+    </div>
+
+    <div class="faq glass" data-reveal>
+      <button class="faq-item" data-faq>
+        <span class="faq-q">Can I switch plans anytime?</span>
+        <span class="faq-plus"></span>
+        <span class="faq-a">Yes — upgrades apply immediately, downgrades take effect at the end of your current billing period. No penalty either way.</span>
+      </button>
+      <button class="faq-item" data-faq>
+        <span class="faq-q">What happens if my team grows mid-cycle?</span>
+        <span class="faq-plus"></span>
+        <span class="faq-a">Add seats whenever you need them — you're charged a prorated amount for the rest of the current cycle, then the new total from the next one.</span>
+      </button>
+      <button class="faq-item" data-faq>
+        <span class="faq-q">Do you offer a student or nonprofit discount?</span>
+        <span class="faq-plus"></span>
+        <span class="faq-a">Yes, both get 50% off Pro with verification. Nonprofits on Studio get volume pricing regardless of team size.</span>
+      </button>
+      <button class="faq-item" data-faq>
+        <span class="faq-q">What payment methods do you accept?</span>
+        <span class="faq-plus"></span>
+        <span class="faq-a">All major cards, plus invoicing for Studio teams over 20 seats.</span>
+      </button>
+      <button class="faq-item" data-faq>
+        <span class="faq-q">Is there a refund if I'm not happy?</span>
+        <span class="faq-plus"></span>
+        <span class="faq-a">Full refund within 14 days of any charge, no questions asked — just ask from inside billing settings.</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-band" data-reveal>
+    <h2>Start free. Upgrade when it earns it.</h2>
+    <a href="#plans" class="btn btn-primary btn-lg">Get Aura</a>
+    <p class="cta-note">Available on Mac, iPhone, iPad, and the web.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <span class="nav-mark">Aura</span>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="intelligence.html">Intelligence</a>
+        <a href="design.html">Design</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="plans.html">Compare plans</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Newsroom</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aura. A concept design, not affiliated with Apple Inc.</p>
+  </div>
+</footer>
+
+<script src="wireorb.js"></script>
+<script src="pricing.js"></script>
+</body>
+</html>
